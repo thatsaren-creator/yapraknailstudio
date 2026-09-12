@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaprak Nail Studio | Sanatsal Tırnak Tasarımı & Bakım</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#FAFAFA',
+                        'brand-rose': '#F4E8EB',
+                        'brand-nude': '#E8D5C4',
+                        'brand-gold': '#D4AF37',
+                        'brand-gold-soft': '#E0A96D',
+                        'brand-dark': '#2B232A',
+                        'brand-muted': '#6B5E62',
+                        'brand-sage': '#6B876B'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(244, 232, 235, 0.6), 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #E0A96D 0%, #D4AF37 100%);
+        }
+        .rose-gradient {
+            background: linear-gradient(180deg, #F4E8EB 0%, #FAFAFA 100%);
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white pb-20 md:pb-0">
+
+    <!-- TOP ANNOUNCEMENT BANNER -->
+    <div class="bg-brand-dark text-brand-nude text-xs md:text-sm py-2 px-4 text-center font-medium tracking-wider flex items-center justify-center gap-2">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-gold"></i>
+        <span>"Kırılan Tırnağım Olsun" – Steril, Zarif ve Kişiye Özel Hizmet</span>
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-gold"></i>
+    </div>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-rose transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex flex-col">
+                <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brand-dark">Yaprak Nail Studio</span>
+                <span class="text-[10px] uppercase tracking-[0.25em] text-brand-gold-soft font-semibold -mt-1">Nail Art & Estetik</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-dark/80">
+                <a href="#hakkimizda" class="hover:text-brand-gold-soft transition-colors">Hakkımızda</a>
+                <a href="#hizmetler" class="hover:text-brand-gold-soft transition-colors">Hizmetler</a>
+                <a href="#instagram" class="hover:text-brand-gold-soft transition-colors">Instagram</a>
+                <a href="#yorumlar" class="hover:text-brand-gold-soft transition-colors">Müşteri Yorumları</a>
+                <a href="#iletisim" class="hover:text-brand-gold-soft transition-colors">İletişim</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="hidden sm:flex items-center space-x-3">
+                <a href="https://www.instagram.com/yaprak_nail_studio" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-gold-soft/50 text-brand-dark text-xs uppercase tracking-wider font-semibold hover:bg-brand-rose transition-all duration-300">
+                    <i data-lucide="instagram" class="w-4 h-4 text-brand-gold-soft"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://wa.me/5544302146" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full gold-gradient-bg text-white text-xs uppercase tracking-wider font-semibold shadow-md shadow-brand-gold/20 hover:opacity-95 transition-all duration-300">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    <span>WhatsApp Randevu</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" aria-label="Menüyü Aç" class="lg:hidden p-2 rounded-lg text-brand-dark hover:bg-brand-rose/50">
+                <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-brand-rose bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="#hakkimizda" class="mobile-nav-link block py-2 text-base font-medium text-brand-dark hover:text-brand-gold-soft">Hakkımızda</a>
+            <a href="#hizmetler" class="mobile-nav-link block py-2 text-base font-medium text-brand-dark hover:text-brand-gold-soft">Hizmetler</a>
+            <a href="#instagram" class="mobile-nav-link block py-2 text-base font-medium text-brand-dark hover:text-brand-gold-soft">Instagram</a>
+            <a href="#yorumlar" class="mobile-nav-link block py-2 text-base font-medium text-brand-dark hover:text-brand-gold-soft">Müşteri Yorumları</a>
+            <a href="#iletisim" class="mobile-nav-link block py-2 text-base font-medium text-brand-dark hover:text-brand-gold-soft">İletişim</a>
+            <div class="pt-3 flex flex-col gap-2.5">
+                <a href="https://wa.me/5544302146" target="_blank" class="w-full flex items-center justify-center gap-2 gold-gradient-bg text-white py-3 rounded-full font-semibold text-sm">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    WhatsApp Randevu (5544302146)
+                </a>
+                <a href="https://www.instagram.com/yaprak_nail_studio" target="_blank" class="w-full flex items-center justify-center gap-2 border border-brand-gold-soft text-brand-dark py-3 rounded-full font-semibold text-sm">
+                    <i data-lucide="instagram" class="w-4 h-4 text-brand-gold-soft"></i>
+                    Instagram (@yaprak_nail_studio)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden pt-8 pb-16 lg:py-24 bg-gradient-to-b from-brand-rose/40 via-brand-bg to-brand-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-nude shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-dark">Kişiye Özel Premium Tırnak Stüdyosu</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-brand-dark font-medium leading-[1.15]">
+                        Tırnaklarınıza <br class="hidden sm:inline" />
+                        <span class="italic font-normal text-brand-gold-soft">Sanatsal Ve Şık</span> Bir Dokunuş
+                    </h1>
+
+                    <p class="text-brand-muted text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        Protez tırnak, kalıcı oje, medikal manikür ve kişiye özel tasarımlar ile ellerinizde benzersiz bir zarafet yaratıyoruz. Steril ortam, uzman dokunuşlar ve modern estetik.
+                    </p>
+
+                    <!-- Features bullets -->
+                    <div class="grid grid-cols-2 gap-3 pt-2 text-left max-w-md mx-auto lg:mx-0">
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-brand-dark">
+                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-brand-rose flex items-center justify-center text-brand-gold-soft">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </span>
+                            100% Steril & Hijyenik
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-brand-dark">
+                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-brand-rose flex items-center justify-center text-brand-gold-soft">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </span>
+                            Kalıcı & Sağlam Tasarımlar
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-brand-dark">
+                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-brand-rose flex items-center justify-center text-brand-gold-soft">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </span>
+                            Trend Nail Art Sanatı
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-brand-dark">
+                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-brand-rose flex items-center justify-center text-brand-gold-soft">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </span>
+                            Kişiye Özel İlgi
+                        </div>
+                    </div>
+
+                    <!-- CTA Actions -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="https://wa.me/5544302146" target="_blank" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full gold-gradient-bg text-white font-semibold text-sm tracking-wide shadow-lg shadow-brand-gold/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <span>Randevunuzu Oluşturun</span>
+                        </a>
+                        <a href="#hizmetler" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white border border-brand-nude text-brand-dark font-semibold text-sm hover:bg-brand-rose/60 transition-all">
+                            Hizmetleri Keşfet
+                            <i data-lucide="arrow-down" class="w-4 h-4 text-brand-gold-soft"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual Media (Image from reference) -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Decorative Frame Behind -->
+                        <div class="absolute -top-4 -right-4 w-full h-full rounded-2xl border-2 border-brand-gold/40 transform translate-x-2 translate-y-2 pointer-events-none hidden sm:block"></div>
+                        
+                        <!-- Studio Image Card -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-brand-rose bg-white">
+                            <img src="https://www.designarena.ai/u/4b8e8741-66f4-43f2-8a3a-d2eb1d062d0e" 
+                                 alt="Yaprak Nail Studio İç Mekan ve Neon Tabela" 
+                                 class="w-full h-[380px] sm:h-[460px] object-cover object-center transform hover:scale-105 transition-transform duration-700">
+                            
+                            <!-- Overlay Neon Badge -->
+                            <div class="absolute bottom-4 left-4 right-4 bg-brand-dark/85 backdrop-blur-md rounded-xl p-4 text-white border border-white/10 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs uppercase tracking-wider text-brand-gold-soft font-medium">Stüdyo Sloganımız</p>
+                                    <p class="font-serif italic text-lg sm:text-xl text-white">"Kırılan Tırnağım Olsun"</p>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold-soft">
+                                    <i data-lucide="heart" class="w-5 h-5 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Floating Tag -->
+                        <div class="absolute -top-3 -left-3 bg-white py-2 px-4 rounded-xl shadow-lg border border-brand-rose flex items-center gap-2">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+                            <span class="text-xs font-semibold text-brand-dark">UV Sterilizasyon Onaylı</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HAKKIMIZDA SECTION -->
+    <section id="hakkimizda" class="py-20 bg-white border-y border-brand-rose/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Studio Image (Reference Image Reuse as specified) -->
+                <div class="lg:col-span-5 order-2 lg:order-1">
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg border border-brand-nude/40">
+                        <img src="https://www.designarena.ai/u/4b8e8741-66f4-43f2-8a3a-d2eb1d062d0e" 
+                             alt="Yaprak Nail Studio Steril Alan" 
+                             class="w-full h-80 sm:h-96 object-cover object-left">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/70 via-transparent to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <span class="text-xs tracking-widest uppercase text-brand-nude">Hijyen ve Huzur</span>
+                                <p class="text-sm font-light mt-1">Konforlu, ferah ve tamamen sterilize edilmiş stüdyo ortamı.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+                    <div class="inline-block">
+                        <span class="text-xs font-bold tracking-[0.2em] uppercase text-brand-gold-soft">Zarafetin Adresi</span>
+                        <div class="h-0.5 w-12 bg-brand-gold mt-1"></div>
+                    </div>
+
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-dark font-medium leading-tight">
+                        Estetik, Hijyen ve Kişiye Özel İlgiyle Tanışın
+                    </h2>
+
+                    <p class="text-brand-muted leading-relaxed text-base">
+                        <strong>Yaprak Nail Studio</strong> olarak, tırnak bakımını yalnızca estetik bir dokunuş olarak değil; kendinize ayırdığınız en keyifli ve değerli zaman dilimi olarak görüyoruz. Stüdyomuzdaki ikonik <span class="italic text-brand-dark font-serif font-semibold">"Kırılan Tırnağım Olsun"</span> neon duvarımız ve samimi atmosferimizle, her danışanımızın kendini özel hissetmesini amaçlıyoruz.
+                    </p>
+
+                    <p class="text-brand-muted leading-relaxed text-base">
+                        En yüksek medikal standartlarda UV ve otoklav sterilizasyon süreçlerimiz, dünya standardında kaliteli jel ve oje ürünlerimizle; hem tırnak sağlığınızı koruyor hem de hayal ettiğiniz zarafeti tırnaklarınıza işliyoruz.
+                    </p>
+
+                    <!-- Trust Stats -->
+                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-brand-rose">
+                        <div class="p-3 bg-brand-bg rounded-xl text-center">
+                            <span class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark block">100%</span>
+                            <span class="text-xs text-brand-muted font-medium">Steril Cihazlar</span>
+                        </div>
+                        <div class="p-3 bg-brand-bg rounded-xl text-center">
+                            <span class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark block">3-4</span>
+                            <span class="text-xs text-brand-muted font-medium">Hafta Kalıcılık</span>
+                        </div>
+                        <div class="p-3 bg-brand-bg rounded-xl text-center">
+                            <span class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark block">1000+</span>
+                            <span class="text-xs text-brand-muted font-medium">Mutlu Danışan</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HİZMETLERİMİZ SECTION -->
+    <section id="hizmetler" class="py-20 bg-brand-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold tracking-[0.2em] uppercase text-brand-gold-soft">Hizmetlerimiz</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-dark font-medium mt-2">
+                    Ellerinize Değer Katan Profesyonel Dokunuşlar
+                </h2>
+                <p class="text-brand-muted text-sm sm:text-base mt-3">
+                    En kaliteli malzemeler ve ince işçilikle tırnak yapınıza en uygun uygulamaları sunuyoruz.
+                </p>
+            </div>
+
+            <!-- Service Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-7 border border-brand-rose shadow-sm hover:shadow-xl hover:border-brand-gold/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-rose flex items-center justify-center text-brand-dark group-hover:bg-brand-gold group-hover:text-white transition-colors duration-300 mb-6">
+                            <i data-lucide="sparkle" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-2">Protez Tırnak (Jel / Akrilik)</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            İstenilen form ve uzunlukta, doğal tırnak yapınıza zarar vermeyen premium jel sistemleri ile kırılmayan, güçlü ve kusursuz tırnaklar.
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-dark font-medium mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Tip veya Şablon Tekniği</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> 4 Haftaya Kadar Kusursuz Kullanım</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Doğal Görünüm ve İnce Bitiş</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5544302146?text=Merhaba,%20Protez%20Tırnak%20hakkında%20bilgi%20ve%20randevu%20almak%20istiyorum." 
+                       class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-brand-dark/20 text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-all">
+                        Randevu Talebi
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-7 border border-brand-rose shadow-sm hover:shadow-xl hover:border-brand-gold/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-rose flex items-center justify-center text-brand-dark group-hover:bg-brand-gold group-hover:text-white transition-colors duration-300 mb-6">
+                            <i data-lucide="gem" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-2">Kalıcı Oje</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Geniş renk yelpazesi, soyulmayan ve çatlamayan formüllerle 3 haftadan uzun süre ilk günkü parlaklığını koruyan tırnaklar.
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-dark font-medium mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Rubber Base Taban Desteği</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Yüzlerce Trend Renk Seçeneği</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Ayna Parlaklığında Son Kat</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5544302146?text=Merhaba,%20Kalıcı%20Oje%20için%20randevu%20almak%20istiyorum." 
+                       class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-brand-dark/20 text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-all">
+                        Randevu Talebi
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-7 border border-brand-rose shadow-sm hover:shadow-xl hover:border-brand-gold/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-rose flex items-center justify-center text-brand-dark group-hover:bg-brand-gold group-hover:text-white transition-colors duration-300 mb-6">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-2">Medikal / Kuru Manikür</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Kombine ve aparatlı tekniklerle etlere zarar vermeden, tamamen steril uçlarla derinlemesine ve pürüzsüz tırnak çevresi temizliği.
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-dark font-medium mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Kişiye Özel Tek Kullanımlık Törpüler</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Otoklav Sterilizasyonlu Frezeler</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Tırnak Eti Besleyici Peeling & Bakım</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5544302146?text=Merhaba,%20Medikal%20Manikür%20hakkında%20bilgi%20almak%20istiyorum." 
+                       class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-brand-dark/20 text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-all">
+                        Randevu Talebi
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl p-7 border border-brand-rose shadow-sm hover:shadow-xl hover:border-brand-gold/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-rose flex items-center justify-center text-brand-dark group-hover:bg-brand-gold group-hover:text-white transition-colors duration-300 mb-6">
+                            <i data-lucide="palette" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-2">Özel Nail Art Tasarımları</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Minimal çizgiler, Fransız manikürü (French), mermer desenler, taş ve ışıltılı detaylarla tamamen stilinize özel el çizimleri.
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-dark font-medium mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> İnce Fırça El Çizimi</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Chrome / Glazed Donut Efektleri</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Kişiye Özel Konsept Çalışmalar</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5544302146?text=Merhaba,%20Özel%20Nail%20Art%20tasarımı%20yaptırmak%20istiyorum." 
+                       class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-brand-dark/20 text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-all">
+                        Randevu Talebi
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white rounded-2xl p-7 border border-brand-rose shadow-sm hover:shadow-xl hover:border-brand-gold/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-rose flex items-center justify-center text-brand-dark group-hover:bg-brand-gold group-hover:text-white transition-colors duration-300 mb-6">
+                            <i data-lucide="wrench" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-2">Tırnak Güçlendirme & Onarım</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Kırılan, çatlayan ve kat kat ayrılan hassas tırnaklar için keratin, vitamin ve biyojel desteğiyle yapısal onarım seansı.
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-dark font-medium mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> IBX & Keratin Güçlendirme</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Kırık Tırnak Kurtarma</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Sağlıklı Uzama Desteği</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5544302146?text=Merhaba,%20Tırnak%20güçlendirme%20hakkında%20bilgi%20almak%20istiyorum." 
+                       class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-brand-dark/20 text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-all">
+                        Randevu Talebi
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white rounded-2xl p-7 border border-brand-rose shadow-sm hover:shadow-xl hover:border-brand-gold/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-rose flex items-center justify-center text-brand-dark group-hover:bg-brand-gold group-hover:text-white transition-colors duration-300 mb-6">
+                            <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-2">Protez / Kalıcı Oje Çıkarma</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Tırnak plakasına asla zarar vermeden, freze cihazı ve özel solüsyonlar kullanılarak profesyonel ve güvenli temizleme işlemi.
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-dark font-medium mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Tırnak İnceltmeyen Hassas Yöntem</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Besleyici Yağ Terapisi Dahil</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Hızlı ve Ağrısız Uygulama</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5544302146?text=Merhaba,%20Jel%20veya%20Oje%20çıkarma%20işlemi%20için%20yazıyorum." 
+                       class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-brand-dark/20 text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-all">
+                        Randevu Talebi
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM AKIŞI BÖLÜMÜ (Görsel kuralına uygun: Fotoğraf yerine ikonik ve şık grafik bloklar kullanılmıştır) -->
+    <section id="instagram" class="py-20 bg-white border-t border-brand-rose">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold tracking-[0.2em] uppercase text-brand-gold-soft">Sosyal Medyada Biz</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-dark font-medium mt-2">
+                        @yaprak_nail_studio
+                    </h2>
+                    <p class="text-brand-muted text-sm sm:text-base mt-2">
+                        En yeni tırnak tasarımlarımız, stüdyo günlüklerimiz ve ilham veren stillerimiz için bizi takip edin.
+                    </p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="https://www.instagram.com/yaprak_nail_studio" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-brand-dark text-white text-xs uppercase tracking-wider font-semibold hover:bg-brand-gold transition-colors duration-300">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                        <span>Instagram'da Takip Edin</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Instagram Feed Preview Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Card 1 -->
+                <a href="https://www.instagram.com/yaprak_nail_studio" target="_blank" class="group relative rounded-2xl bg-brand-rose/60 border border-brand-nude/50 p-6 flex flex-col justify-between aspect-square hover:bg-brand-rose transition-all duration-300 overflow-hidden">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-serif italic text-brand-muted">#NailArt</span>
+                        <i data-lucide="instagram" class="w-5 h-5 text-brand-gold-soft opacity-70 group-hover:opacity-100"></i>
+                    </div>
+                    <div class="my-auto text-center">
+                        <i data-lucide="sparkles" class="w-8 h-8 mx-auto text-brand-gold mb-2 transform group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-serif text-lg font-semibold text-brand-dark">Badem Jel Protez</h4>
+                        <p class="text-xs text-brand-muted mt-1">Glazed & Chrome Yansıma</p>
+                    </div>
+                    <div class="text-[11px] text-brand-gold-soft font-semibold text-center uppercase tracking-wider">İncele →</div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="https://www.instagram.com/yaprak_nail_studio" target="_blank" class="group relative rounded-2xl bg-brand-rose/60 border border-brand-nude/50 p-6 flex flex-col justify-between aspect-square hover:bg-brand-rose transition-all duration-300 overflow-hidden">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-serif italic text-brand-muted">#French</span>
+                        <i data-lucide="instagram" class="w-5 h-5 text-brand-gold-soft opacity-70 group-hover:opacity-100"></i>
+                    </div>
+                    <div class="my-auto text-center">
+                        <i data-lucide="heart" class="w-8 h-8 mx-auto text-brand-gold mb-2 transform group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-serif text-lg font-semibold text-brand-dark">Modern Micro French</h4>
+                        <p class="text-xs text-brand-muted mt-1">Süt Beyazı & Gold Çizgi</p>
+                    </div>
+                    <div class="text-[11px] text-brand-gold-soft font-semibold text-center uppercase tracking-wider">İncele →</div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="https://www.instagram.com/yaprak_nail_studio" target="_blank" class="group relative rounded-2xl bg-brand-rose/60 border border-brand-nude/50 p-6 flex flex-col justify-between aspect-square hover:bg-brand-rose transition-all duration-300 overflow-hidden">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-serif italic text-brand-muted">#StudioVibes</span>
+                        <i data-lucide="instagram" class="w-5 h-5 text-brand-gold-soft opacity-70 group-hover:opacity-100"></i>
+                    </div>
+                    <div class="my-auto text-center">
+                        <i data-lucide="quote" class="w-8 h-8 mx-auto text-brand-gold mb-2 transform group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-serif text-lg font-semibold text-brand-dark">"Kırılan Tırnağım Olsun"</h4>
+                        <p class="text-xs text-brand-muted mt-1">Stüdyo Köşemiz</p>
+                    </div>
+                    <div class="text-[11px] text-brand-gold-soft font-semibold text-center uppercase tracking-wider">İncele →</div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="https://www.instagram.com/yaprak_nail_studio" target="_blank" class="group relative rounded-2xl bg-brand-rose/60 border border-brand-nude/50 p-6 flex flex-col justify-between aspect-square hover:bg-brand-rose transition-all duration-300 overflow-hidden">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-serif italic text-brand-muted">#KalıcıOje</span>
+                        <i data-lucide="instagram" class="w-5 h-5 text-brand-gold-soft opacity-70 group-hover:opacity-100"></i>
+                    </div>
+                    <div class="my-auto text-center">
+                        <i data-lucide="award" class="w-8 h-8 mx-auto text-brand-gold mb-2 transform group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-serif text-lg font-semibold text-brand-dark">Kusursuz Manikür</h4>
+                        <p class="text-xs text-brand-muted mt-1">Nude & Zarafet Serisi</p>
+                    </div>
+                    <div class="text-[11px] text-brand-gold-soft font-semibold text-center uppercase tracking-wider">İncele →</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÜŞTERİ YORUMLARI SECTION -->
+    <section id="yorumlar" class="py-20 bg-brand-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold tracking-[0.2em] uppercase text-brand-gold-soft">Danışanlarımız Ne Diyor?</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-dark font-medium mt-2">
+                    Mutlu Danışan Yorumları
+                </h2>
+                <p class="text-brand-muted text-sm sm:text-base mt-3">
+                    Stüdyomuzdan ayrılırken yüzündeki tebessüm bizim en büyük motivasyonumuz.
+                </p>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-brand-rose shadow-sm flex flex-col justify-between relative">
+                    <div class="space-y-4">
+                        <div class="flex text-brand-gold gap-1">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-brand-dark/90 italic text-sm leading-relaxed">
+                            "Yaprak Hanım'ın ellerine sağlık! İlk defa tırnaklarım bu kadar ince ve doğal durdu. Üstelik tam 4 hafta oldu, ne bir kalkma ne bir kırılma var. Ortam inanılmaz temiz ve ferah."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-rose flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-rose flex items-center justify-center font-serif font-bold text-brand-dark">
+                            S.K.
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-brand-dark">Selin K.</p>
+                            <span class="text-xs text-brand-muted">Protez Tırnak & Nail Art</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-brand-rose shadow-sm flex flex-col justify-between relative">
+                    <div class="space-y-4">
+                        <div class="flex text-brand-gold gap-1">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-brand-dark/90 italic text-sm leading-relaxed">
+                            "Stüdyonun enerjisi ve o neon yazı harika! Medikal manikürde tek geçerim, canımı asla yakmadan kusursuz bir temizlik yaptı. Hijyen konusunda aşırı titiz olan bana bile tam güven verdiler."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-rose flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-rose flex items-center justify-center font-serif font-bold text-brand-dark">
+                            B.A.
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-brand-dark">Buse A.</p>
+                            <span class="text-xs text-brand-muted">Kuru Manikür & Kalıcı Oje</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-brand-rose shadow-sm flex flex-col justify-between relative">
+                    <div class="space-y-4">
+                        <div class="flex text-brand-gold gap-1">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-brand-dark/90 italic text-sm leading-relaxed">
+                            "Referans olarak gösterdiğim tırnak modelinin birebir aynısını hatta daha güzelini çizdi. İşine bu kadar özen gösteren ve samimi bir işletme bulmak zor. Kesinlikle tavsiye ederim."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-rose flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-rose flex items-center justify-center font-serif font-bold text-brand-dark">
+                            E.Y.
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-brand-dark">Ece Y.</p>
+                            <span class="text-xs text-brand-muted">Özel Tasarım Nail Art</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RANDAVU / CTA BANNER -->
+    <section class="py-16 bg-brand-dark text-white relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10 space-y-6">
+            <span class="text-brand-gold-soft text-xs font-semibold tracking-widest uppercase">Zamanınızı Kendinize Ayırın</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-normal leading-tight">
+                Hayalinizdeki Tırnaklar İçin Randevunuzu Bugün Alın
+            </h2>
+            <p class="text-white/70 max-w-xl mx-auto text-sm sm:text-base font-light">
+                WhatsApp üzerinden tek dokunuşla dilediğiniz gün ve saat için randevu oluşturabilir, aklınıza takılan tüm soruları sorabilirsiniz.
+            </p>
+            <div class="pt-2">
+                <a href="https://wa.me/5544302146" target="_blank" 
+                   class="inline-flex items-center gap-3 px-9 py-4 rounded-full gold-gradient-bg text-white font-semibold text-sm tracking-wider uppercase shadow-xl hover:scale-105 transition-all">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    <span>Hemen Randevu Al (5544302146)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / İLETİŞİM SECTION -->
+    <footer id="iletisim" class="bg-white border-t border-brand-rose pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex flex-col">
+                        <span class="font-serif text-2xl font-bold tracking-tight text-brand-dark">Yaprak Nail Studio</span>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-brand-gold-soft font-semibold">Tırnak & Estetik</span>
+                    </div>
+                    <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
+                        Tırnaklarınıza zarif, estetik ve sağlam dokunuşlar. Yüksek hijyen standartlarında premium bakım ayrıcalığı.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://www.instagram.com/yaprak_nail_studio" target="_blank" class="w-9 h-9 rounded-full bg-brand-rose flex items-center justify-center text-brand-dark hover:bg-brand-gold hover:text-white transition-colors">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://wa.me/5544302146" target="_blank" class="w-9 h-9 rounded-full bg-brand-rose flex items-center justify-center text-brand-dark hover:bg-brand-gold hover:text-white transition-colors">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Hizmet Linkleri -->
+                <div class="space-y-3">
+                    <h4 class="font-serif text-lg font-bold text-brand-dark">Öne Çıkan Hizmetler</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-brand-muted">
+                        <li><a href="#hizmetler" class="hover:text-brand-dark transition-colors">Protez Tırnak Uygulaması</a></li>
+                        <li><a href="#hizmetler" class="hover:text-brand-dark transition-colors">Kalıcı Oje & Nail Art</a></li>
+                        <li><a href="#hizmetler" class="hover:text-brand-dark transition-colors">Medikal Kuru Manikür</a></li>
+                        <li><a href="#hizmetler" class="hover:text-brand-dark transition-colors">Tırnak Güçlendirme & Bakım</a></li>
+                        <li><a href="#hizmetler" class="hover:text-brand-dark transition-colors">Jel Tırnak Onarımı</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Hızlı İletişim (5544302146 formatı korunmuştur) -->
+                <div class="space-y-3">
+                    <h4 class="font-serif text-lg font-bold text-brand-dark">İletişim & Randevu</h4>
+                    <div class="space-y-2 text-xs sm:text-sm text-brand-muted">
+                        <p class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-brand-gold-soft"></i>
+                            <a href="tel:5544302146" class="hover:text-brand-dark font-medium">5544302146</a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-brand-gold-soft"></i>
+                            <a href="https://wa.me/5544302146" target="_blank" class="hover:text-brand-dark">WhatsApp: 5544302146</a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i data-lucide="instagram" class="w-4 h-4 text-brand-gold-soft"></i>
+                            <a href="https://www.instagram.com/yaprak_nail_studio" target="_blank" class="hover:text-brand-dark">@yaprak_nail_studio</a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i data-lucide="clock" class="w-4 h-4 text-brand-gold-soft"></i>
+                            <span>Pzt - Cmt: 09:30 - 19:30</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Col 4: Stüdyo Mottosu -->
+                <div class="space-y-3">
+                    <h4 class="font-serif text-lg font-bold text-brand-dark">Stüdyo Ruhu</h4>
+                    <div class="p-4 rounded-xl bg-brand-rose/60 border border-brand-nude/40">
+                        <p class="font-serif italic text-base text-brand-dark leading-snug">
+                            "Kırılan Tırnağım Olsun..."
+                        </p>
+                        <p class="text-[11px] text-brand-muted mt-2">
+                            Günün yorgunluğunu unutup ellerinizin ışıltısıyla kendinizi yenileyebileceğiniz sıcak bir stüdyo.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-12 pt-6 border-t border-brand-rose flex flex-col sm:flex-row items-center justify-between text-xs text-brand-muted gap-4">
+                <p>© 2025 Yaprak Nail Studio. Tüm hakları saklıdır.</p>
+                <p class="flex items-center gap-1">
+                    Güzelliğin ve zarafetin adresi.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SABİT MOBİL ALT BAR (MOBILE STICKY ACTION BAR) -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-brand-rose py-2.5 px-4 flex items-center justify-between gap-3 lg:hidden shadow-[0_-4px_15px_rgba(0,0,0,0.06)]">
+        <a href="https://wa.me/5544302146" target="_blank" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl gold-gradient-bg text-white font-semibold text-xs tracking-wide shadow-md active:scale-95 transition-all">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>WhatsApp Randevu</span>
+        </a>
+        <a href="https://www.instagram.com/yaprak_nail_studio" target="_blank" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-brand-gold text-brand-dark font-semibold text-xs tracking-wide bg-brand-rose/40 active:scale-95 transition-all">
+            <i data-lucide="instagram" class="w-4 h-4 text-brand-gold-soft"></i>
+            <span>Instagram</span>
+        </a>
+        <a href="tel:5544302146" class="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-xl bg-brand-dark text-white active:scale-95 transition-all">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+        </a>
+    </div>
+
+    <!-- SCRIPT FOR ICONS & MOBILE NAVIGATION INTERACTIVITY -->
+    <script>
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Mobile Menu Toggle Logic
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // Close menu on link click
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
